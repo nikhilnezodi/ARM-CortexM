@@ -25,10 +25,10 @@ ARM CPUs are based on Load/Store Architecture (RISC Architecture)
 
 As an Embedded Software Engineer what all do you need to know about a CPU to Master it?
 
-1. Programmers Model
-2. Exception Model
-3. Memory Model
-4. Debug Model
+1. Programmers Model - Details Mode of operation of CPU and the registers that CPU have (GPRs and SFRs). How can a programmer imagine the computation being done by the CPU
+2. Exception Model - Talks about how cpu can handle Exception/Interrupt* handling (Interrupt is external to CPU, Exception is internal)
+3. Memory Model - Specifices how CPU Interacts with Memory.
+4. Debug Model - External Debug hardware [Hardware Debugger] that can be connected to CPU that can let you read the CPU registers and control CPU
 
 
 
