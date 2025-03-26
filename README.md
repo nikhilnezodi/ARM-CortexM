@@ -19,8 +19,7 @@ Mv7 will be backwards compatible with Mv6..so on and so forth
 Micro-Architecture: Actual Implementation of Architecture eg. Car with its components - steering, wheels (actual implemetation of description)
 Cortex - M0, M4, M0+,.....
 
-## Mental Model of CPU Memory interactions
-
+## How to Master CPU - Different Models to learn
 ARM CPUs are based on Load/Store Architecture (RISC Architecture)
 
 As an Embedded Software Engineer what all do you need to know about a CPU to Master it?
@@ -30,5 +29,33 @@ As an Embedded Software Engineer what all do you need to know about a CPU to Mas
 3. Memory Model - Specifices how CPU Interacts with Memory.
 4. Debug Model - External Debug hardware [Hardware Debugger] that can be connected to CPU that can let you read the CPU registers and control CPU
 
+## Programmers Model - Register Set
+Reference:
 
+https://community.arm.com/cfs-file/__key/telligent-evolution-components-attachments/01-2142-00-00-00-00-52-96/White-Paper-_2D00_-Cortex_2D00_M-for-Beginners-_2D00_-2016-_2800_final-v3_2900_.pdf
 
+M Class CPU has - 
+16 GPRs : R0-R12, R13/MSP, R13/PSP, R14 (LR), R15 (PC)             
+5 SFRs : xPSR, PRIMASK, FAULTMASK, BASEPRI, CONTROL
+          ^      ^                       ^      ^
+          |      |_______________________|      |
+Program Status Reg          |              Control Register
+                     Interrupt Mask Register
+
+MSP - Main Stack Pointer, PSP - Process Stack Pointer, LR - Link Register, PC - Program Counter
+
+Stack Pointer is required for C function calls to work
+Link Register - Pointing to Address of instruction that CPU has to come back to after completing the execution of a function.
+Program Counter - From where the instruction needs to be fetched.
+
+xPSR (Program Status Registers) - Gives sum of EPSR, APSR, IPSR
+
+Interrupt Mask Register
+
+CPU can have many interrups and to each interrupt you can asign a priority level.
+using PRIMASK and BASEPRI, you can control which interrupt to allow/attend to and which to be ignored. 
+PRIMASK - Prioirty Mask
+FAULTMASK - Fault Mask
+BASEPRI - Base Priority
+
+Control Register - Control the privilege(nPRIV bit) and which stack pointer (SPSEL bit) to use.
