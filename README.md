@@ -81,3 +81,9 @@ When the CPU has booted it starts in the Privilege Thread Mode. So the code can 
 
 In thread mode it can either CPU can either use MSP or PSP, but in handler mode it can only use MSP.
 When CPU boots up, it by default uses MSP as stack pointer. So when in privilege thread, it can set the stack pointer from MSP to PSP. but if any exception occurs, it changes to handler mode, and stack pointer is only automatically set to MSP again.
+
+## CPU Boot up and Vector Table
+
+The interrupts in the M-class CPUs are vectored. Vector Table has list of addresses to where a CPU should jump to when a corresponding interrupt occurs.
+<img width="472" alt="image" src="https://github.com/user-attachments/assets/3d16c338-70fc-4154-89b7-9cf2bbf78778" />
+
