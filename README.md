@@ -96,5 +96,8 @@ The first location (4th address), the entry there is pointing to the memory loca
 Reset to Systick --> How CPU should handle an exception
 
 When CPU is powered up and software is ready to fire, the 0th entry of the vector table will be automatically put into R13 register (Main Stack Pointer).
-The next entry (in the 4th offset) is loaded onto the Program Counter (PC).
+The next entry (in the 4th offset) is loaded onto the Program Counter (PC). Now once the program counter has number within it, it can fetch instructions from memory locations and that is where your initial instructions are.
+
+## Exploring Cortex-M3 registers using QEMU
+
 
