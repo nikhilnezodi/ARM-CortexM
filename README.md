@@ -85,5 +85,16 @@ When CPU boots up, it by default uses MSP as stack pointer. So when in privilege
 ## CPU Boot up and Vector Table
 
 The interrupts in the M-class CPUs are vectored. Vector Table has list of addresses to where a CPU should jump to when a corresponding interrupt occurs.
+
 <img width="472" alt="image" src="https://github.com/user-attachments/assets/3d16c338-70fc-4154-89b7-9cf2bbf78778" />
+
+
+Understanding Vector Table is important to understand how an M-class CPU boots up.
+It starts with 0th offset and increases by a factor of 4.
+At the zeroth offset of the vector table (0 x 0000 0000) , whatever number happens to be there is treated as the location where the stack starts.
+The first location (4th address), the entry there is pointing to the memory location from where CPU should start to fetch instructions on a reset. (related to boot part).
+Reset to Systick --> How CPU should handle an exception
+
+When CPU is powered up and software is ready to fire, the 0th entry of the vector table will be automatically put into R13 register (Main Stack Pointer).
+The next entry (in the 4th offset) is loaded onto the Program Counter (PC).
 
